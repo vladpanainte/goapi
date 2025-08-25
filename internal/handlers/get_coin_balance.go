@@ -8,17 +8,16 @@ import (
 	log "github.com/sirupsen/logrus"
 	"github.com/vladpanainte/goapi/api"
 	"github.com/vladpanainte/goapi/internal/tools"
-	"github.com/vladpanainte/goapi/internal/tools"
 )
 
-func GetCoinBalance(w http.ResponseWriter, r *http.Request){
+func GetCoinBalance(w http.ResponseWriter, r *http.Request) {
 	var params = api.CoinBalanceParams{}
 	var decoder *schema.Decoder = schema.NewDecoder()
 	var err error
 
 	err = decoder.Decode(&params, r.URL.Query())
 
-	if err !=nil {
+	if err != nil {
 		log.Error(err)
 		api.InternalErrorHandler(w)
 		return
@@ -26,7 +25,7 @@ func GetCoinBalance(w http.ResponseWriter, r *http.Request){
 
 	var database *tools.DatabaseInterface
 	database, err = tools.NewDatabase()
-	if err != nil{
+	if err != nil {
 		api.InternalErrorHandler(w)
 		return
 	}
@@ -40,16 +39,14 @@ func GetCoinBalance(w http.ResponseWriter, r *http.Request){
 		return
 	}
 	var response = api.CoinBalanceResponse{
-		Balance: (*tokenDetails).CoinDetails
-		Code: http.StatusOK
+		Balance: (*tokenDetails).Coins,
+		Code:    http.StatusOK,
 	}
-	w.Header().Set("Content-Type","application/json")
+	w.Header().Set("Content-Type", "application/json")
 	err = json.NewEncoder(w).Encode(response)
-	if err !=nil{
+	if err != nil {
 		log.Error(err)
 		api.InternalErrorHandler(w)
 		return
 	}
 }
-
-
