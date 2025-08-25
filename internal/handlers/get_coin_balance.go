@@ -14,7 +14,7 @@ import (
 func GetCoinBalance(w http.ResponseWriter, r *http.Request){
 	var params = api.CoinBalanceParams{}
 	var decoder *schema.Decoder = schema.NewDecoder()
-	car err error
+	var err error
 
 	err = decoder.Decode(&params, r.URL.Query())
 
@@ -40,7 +40,7 @@ func GetCoinBalance(w http.ResponseWriter, r *http.Request){
 		return
 	}
 	var response = api.CoinBalanceResponse{
-		Balance: (*tokenDetails).Coins
+		Balance: (*tokenDetails).CoinDetails
 		Code: http.StatusOK
 	}
 	w.Header().Set("Content-Type","application/json")
