@@ -8,7 +8,7 @@ import (
 	log "github.com/sirupsen/logrus"
 	"github.com/vladpanainte/goapi/api"
 	"github.com/vladpanainte/goapi/internal/tools"
-	"github.com/vladpanainte/internal/tools"
+	"github.com/vladpanainte/goapi/internal/tools"
 )
 
 func GetCoinBalance(w http.ResponseWriter, r *http.Request){
