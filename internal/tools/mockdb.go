@@ -8,31 +8,31 @@ type mockDB struct{}
 
 var mockLoginDetails = map[string]LoginDetails{
 	"alex": {
-		AuthToen: "123ABC"
-		Username: "alex"
+		AuthToken: "123ABC",
+		Username:  "alex",
 	},
 	"ajasonex": {
-		AuthToen: "456DEF"
-		Username: "jason"
+		AuthToken: "456DEF",
+		Username:  "jason",
 	},
 	"marie": {
-		AuthToen: "789GHI"
-		Username: "marie"
+		AuthToken: "789GHI",
+		Username:  "marie",
 	},
 }
 
 var mockCoinsDetails = map[string]CoinDetails{
 	"alex": {
-		Coins: 100
-		Username: "alex"
+		Coins:    100,
+		Username: "alex",
 	},
 	"ajasonex": {
-		Coins: 200
-		Username: "jason"
+		Coins:    200,
+		Username: "jason",
 	},
 	"marie": {
-		Coins: 300
-		Username: "marie"
+		Coins:    300,
+		Username: "marie",
 	},
 }
 
